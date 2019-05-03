@@ -1,0 +1,46 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{hyperref}
+\usepackage[colorinlistoftodos]{todonotes}
+\hypersetup{
+    colorlinks=true,
+    urlcolor=blue,
+}
+ 
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\lhead{Notes on MOOSE}
+\rhead{Rabab Elzohery}
+
+\begin{document}
+\section{To create new application}
+\begin{enumerate}
+\item- ./moose/scripts/stork.sh "your application name" 
+\item create your application (source and include files)
+\item  make -j n
+\item ./yourApplication-opt -i your-input-file.i
+
+using peacock:
+peacock -i your-input-file.i
+
+
+\end{enumerate}
+	\section{MOOSE notation}
+	
+	\begin{itemize}
+	\item $u_h$ is the finite element solution $\to$ \boxed{the~trail~function}
+	\item $u_h = \sum u_i \phi_i $
+	\item $\phi$ = $\nabla u$
+	\item i is the element index and $qp$ is the quadrature point index.
+
+	\end{itemize}
+	
+\section{Miscellaneous notes}
+\begin{itemize}
+	\item If you try to build your application in a git repo., you  will get an error.
+	(same problem \href{https://groups.google.com/forum/#!searchin/moose-users/error$3A$20your$20current$20working$20directory$20is$20inside$20a$20git$20repository|sort:date/moose-users/7E68tlWsjU4/_obfaCeOBQAJ}{here})
+	\item Your application name shouldn't include underscore. Looks like it should be one word. Otherwise you will get an error like \textbf{(unknown applications/label)}.
+\end{itemize}
+\end{document}
